@@ -66,7 +66,7 @@
         }
         that.actioning = true;
         ActionUtil.like({
-            newsId: sId,
+            microBlogId: sId,
             call: function (oResult) {
                 oEl.find('span.count').html(oResult.msg);
                 if (oEl.hasClass('pressed')) {
@@ -99,7 +99,7 @@
         }
         that.actioning = true;
         ActionUtil.dislike({
-            newsId: sId,
+            microBlogId: sId,
             call: function (oResult) {
                 if (oEl.hasClass('pressed')) {
                     oEl.removeClass('pressed');

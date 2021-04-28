@@ -1,15 +1,17 @@
 spring:
   datasource:
-    url: jdbc:mysql:///toutiao?useUnicode=true&characterEncoding=utf8&useSSL=false&serverTimezone=Asia/Shanghai&nullCatalogMeansCurrent=true
+    url: jdbc:mysql:///campus_micro_blog?useUnicode=true&characterEncoding=utf8&useSSL=false&serverTimezone=Asia/Shanghai&nullCatalogMeansCurrent=true
     username: root
     password: 1230
     driver-class-name: com.mysql.cj.jdbc.Driver
   thymeleaf:
     cache: false
+  redis:
+    database: 1
 mybatis-plus:
   global-config:
     db-config:
       id-type: auto
 logging:
   level:
-    com.cr.toutiao.mapper: debug
+    com.cr.campusmicroblog.mapper: debug

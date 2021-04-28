@@ -74,7 +74,7 @@ var oPopupUpload = new PopupUpload({
                 }
                 that.requesting = true;
                 $.ajax({
-                    url: '/user/addNews',
+                    url: '/user/addMicroBlog',
                     method: 'post',
                     data: {image: that.image, title: sTitle, link: sLink},
                     dataType: 'json'

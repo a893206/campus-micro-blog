@@ -11,8 +11,8 @@ CREATE TABLE `user`
 ) ENGINE = InnoDB
   DEFAULT CHARSET = utf8;
 
-DROP TABLE IF EXISTS `news`;
-CREATE TABLE `news`
+DROP TABLE IF EXISTS `micro_blog`;
+CREATE TABLE `micro_blog`
 (
     `id`            int(11) UNSIGNED NOT NULL AUTO_INCREMENT,
     `title`         varchar(128)     NOT NULL DEFAULT '',
