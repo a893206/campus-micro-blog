@@ -26,11 +26,7 @@ public class MessageServiceImpl implements MessageService {
     @Override
     public PageInfo<Message> getConversationList(int userId, int pageNum, int pageSize) {
         PageHelper.startPage(pageNum, pageSize);
-        QueryWrapper<Message> queryWrapper = new QueryWrapper<>();
-        queryWrapper.and(i -> i.eq("from_id", userId).or().eq("to_id", userId));
-        queryWrapper.inSql("id","SELECT MAX(id) FROM message GROUP BY conversation_id");
-        queryWrapper.orderByDesc("id");
-        return new PageInfo<>(messageMapper.selectList(queryWrapper), 5);
+        return new PageInfo<>(messageMapper.getConversationList(userId), 5);
     }
 
     @Override

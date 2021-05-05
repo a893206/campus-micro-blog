@@ -41,7 +41,7 @@ public class LikeHandler implements EventHandler {
         int microBlogId = model.getEntityId();
         MicroBlog microBlog = microBlogService.getById(microBlogId);
         message.setContent("用户" + user.getName() + " " + model.getExt("msg") +
-                ", <a href=\"http://127.0.0.1:8080/microBlog/" + microBlogId + "\">" + microBlog.getTitle() + "</a>");
+                ", <a href=\"/microBlog/" + microBlogId + "\">" + microBlog.getTitle() + "</a>");
         message.setCreatedDate(new Date());
         message.setHasRead(0);
         message.setConversationId(String.format("%d_%d", 1, model.getEntityOwnerId()));
