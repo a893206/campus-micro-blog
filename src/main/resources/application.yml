@@ -15,3 +15,5 @@ mybatis-plus:
 logging:
   level:
     com.cr.campusmicroblog.mapper: debug
+server:
+  port: 8081

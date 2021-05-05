@@ -49,12 +49,12 @@ CREATE TABLE mail
         UNIQUE (username)
 );
 
-INSERT INTO campus_micro_blog.mail (id, host, username, password, port)
+INSERT INTO mail (id, host, username, password, port)
 VALUES (1, 'smtp.qq.com', '请输入你的邮箱', '邮箱授权码', 465);
 ```
 
 [init-schema.sql](https://github.com/a893206/campus-micro-blog/blob/master/src/test/resources/init-schema.sql)
 
-[InitDatabaseTests](https://github.com/a893206/campus-micro-blog/blob/master/src/test/java/com/cr/toutiao/InitDatabaseTests.java)
+[InitDatabaseTests](https://github.com/a893206/campus-micro-blog/blob/master/src/test/java/com/cr/campusmicroblog/InitDatabaseTests.java)
 
 运行InitDatabaseTests生成系统通知用户及测试数据。
