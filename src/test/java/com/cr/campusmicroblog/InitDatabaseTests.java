@@ -74,9 +74,9 @@ class InitDatabaseTests {
             loginTicketMapper.updateById(ticket);
 
             MicroBlog microBlog = new MicroBlog();
-            microBlog.setCommentCount(3);
+            microBlog.setCommentCount(n / 2);
             Date date = new Date();
-            date.setTime(date.getTime() - 1000 * 3600 * (100 - i));
+            date.setTime(date.getTime() - 1000L * 3600 * (100 - i));
             microBlog.setCreatedDate(date);
             microBlog.setImage(String.format("http://images.nowcoder.com/head/%dm.png", random.nextInt(1000)));
             microBlog.setLikeCount(0);
@@ -116,5 +116,11 @@ class InitDatabaseTests {
         Assert.assertNotNull(commentService.getCommentsByEntity(1, EntityType.ENTITY_MICRO_BLOG, 1, 1).getList().get(0));
 
         Assert.assertNotNull(messageMapper.selectById(1));
+
+        Assert.assertNotNull(loginTicketMapper.selectById(3));
+
+        User user = userMapper.selectById(3);
+        user.setName("匿名用户");
+        userMapper.updateById(user);
     }
 }
