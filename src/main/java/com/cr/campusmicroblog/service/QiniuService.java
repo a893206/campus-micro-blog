@@ -9,7 +9,7 @@ import java.io.IOException;
  * @date 2020-11-17 13:57
  */
 public interface QiniuService {
-     String QINIU_IMAGE_DOMAIN = "http://qjvqzlg7v.hn-bkt.clouddn.com/";
+     String QINIU_IMAGE_DOMAIN = "http://qsp6x1tms.hn-bkt.clouddn.com/";
 
     /**
      * 保存图片

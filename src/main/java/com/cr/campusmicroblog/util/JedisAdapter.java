@@ -3,9 +3,12 @@ package com.cr.campusmicroblog.util;
 import com.alibaba.fastjson.JSON;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.InitializingBean;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import redis.clients.jedis.Jedis;
 import redis.clients.jedis.JedisPool;
+import redis.clients.jedis.JedisPoolConfig;
+import redis.clients.jedis.Protocol;
 
 import java.util.List;
 
@@ -16,6 +19,10 @@ import java.util.List;
 @Slf4j
 @Service
 public class JedisAdapter implements InitializingBean {
+
+    @Value("${spring.redis.database}")
+    private int database;
+
     private JedisPool pool = null;
 
     public Jedis getJedis() {
@@ -24,7 +31,7 @@ public class JedisAdapter implements InitializingBean {
 
     @Override
     public void afterPropertiesSet() throws Exception {
-        pool = new JedisPool("localhost", 6379);
+        pool = new JedisPool(new JedisPoolConfig(), Protocol.DEFAULT_HOST, Protocol.DEFAULT_PORT, Protocol.DEFAULT_TIMEOUT, null, database);
     }
 
     public String get(String key) {

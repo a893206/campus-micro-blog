@@ -31,7 +31,7 @@ public class QiniuServiceImpl implements QiniuService {
     /**
      * 要上传的空间
      */
-    String bucketname = "cr0898";
+    String bucketname = "campus-micro-blog";
 
     /**
      * 密钥配置
