@@ -1,7 +1,7 @@
 package com.cr.campusmicroblog.controller;
 
 import com.cr.campusmicroblog.service.UserService;
-import com.cr.campusmicroblog.util.ToutiaoUtil;
+import com.cr.campusmicroblog.util.MicroBlogUtils;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -38,13 +38,13 @@ public class LoginController {
                     cookie.setMaxAge(3600 * 24);
                 }
                 response.addCookie(cookie);
-                return ToutiaoUtil.getJSONString(0, "注册成功");
+                return MicroBlogUtils.getJSONString(0, "注册成功");
             } else {
-                return ToutiaoUtil.getJSONString(1, map);
+                return MicroBlogUtils.getJSONString(1, map);
             }
         } catch (Exception e) {
             log.error("注册异常" + e.getMessage());
-            return ToutiaoUtil.getJSONString(1, "注册异常");
+            return MicroBlogUtils.getJSONString(1, "注册异常");
         }
     }
 
@@ -63,13 +63,13 @@ public class LoginController {
                     cookie.setMaxAge(3600 * 24);
                 }
                 response.addCookie(cookie);
-                return ToutiaoUtil.getJSONString(0, "登录成功");
+                return MicroBlogUtils.getJSONString(0, "登录成功");
             } else {
-                return ToutiaoUtil.getJSONString(1, map);
+                return MicroBlogUtils.getJSONString(1, map);
             }
         } catch (Exception e) {
             log.error("登录异常" + e.getMessage());
-            return ToutiaoUtil.getJSONString(1, "登录异常");
+            return MicroBlogUtils.getJSONString(1, "登录异常");
         }
     }
 }

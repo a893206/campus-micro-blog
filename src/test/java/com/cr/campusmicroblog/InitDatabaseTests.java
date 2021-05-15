@@ -49,7 +49,7 @@ class InitDatabaseTests {
 
         User admin = new User();
         admin.setHeadUrl(String.format("http://images.nowcoder.com/head/%dt.png", random.nextInt(1000)));
-        admin.setName("系统通知");
+        admin.setName("系统管理员");
         admin.setPassword("4C36D3A89DFB9C9BADDEEA96BFF6260D");
         admin.setSalt("e71e0");
         userMapper.insert(admin);

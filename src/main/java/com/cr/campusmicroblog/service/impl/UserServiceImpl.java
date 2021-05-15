@@ -9,7 +9,7 @@ import com.cr.campusmicroblog.entity.User;
 import com.cr.campusmicroblog.mapper.LoginTicketMapper;
 import com.cr.campusmicroblog.mapper.UserMapper;
 import com.cr.campusmicroblog.service.UserService;
-import com.cr.campusmicroblog.util.ToutiaoUtil;
+import com.cr.campusmicroblog.util.MicroBlogUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -63,7 +63,7 @@ public class UserServiceImpl implements UserService {
         user.setSalt(UUID.randomUUID().toString().substring(0, 5));
         String head = String.format("http://images.nowcoder.com/head/%dt.png", new Random().nextInt(1000));
         user.setHeadUrl(head);
-        user.setPassword(ToutiaoUtil.MD5(password + user.getSalt()));
+        user.setPassword(MicroBlogUtils.MD5(password + user.getSalt()));
         userMapper.insert(user);
 
         // 登录
@@ -93,7 +93,7 @@ public class UserServiceImpl implements UserService {
             return map;
         }
 
-        if (!ToutiaoUtil.MD5(password + user.getSalt()).equals(user.getPassword())) {
+        if (!MicroBlogUtils.MD5(password + user.getSalt()).equals(user.getPassword())) {
             map.put("msgpwd", "密码不正确");
             return map;
         }

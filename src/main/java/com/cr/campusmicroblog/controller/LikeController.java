@@ -5,7 +5,7 @@ import com.cr.campusmicroblog.entity.HostHolder;
 import com.cr.campusmicroblog.entity.User;
 import com.cr.campusmicroblog.service.LikeService;
 import com.cr.campusmicroblog.service.MicroBlogService;
-import com.cr.campusmicroblog.util.ToutiaoUtil;
+import com.cr.campusmicroblog.util.MicroBlogUtils;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -32,23 +32,23 @@ public class LikeController {
     public String like(@Param("newId") int microBlogId) {
         User user = hostHolder.getUser();
         if (user == null) {
-            return ToutiaoUtil.getJSONString(1, "用户未登录");
+            return MicroBlogUtils.getJSONString(1, "用户未登录");
         }
         long likeCount = likeService.like(user.getId(), EntityType.ENTITY_MICRO_BLOG, microBlogId);
         //更新点赞数
         microBlogService.updateLikeCount(microBlogId, (int) likeCount);
-        return ToutiaoUtil.getJSONString(0, String.valueOf(likeCount));
+        return MicroBlogUtils.getJSONString(0, String.valueOf(likeCount));
     }
 
     @PostMapping("/dislike")
     public String dislike(@Param("newId") int microBlogId) {
         User user = hostHolder.getUser();
         if (user == null) {
-            return ToutiaoUtil.getJSONString(1, "用户未登录");
+            return MicroBlogUtils.getJSONString(1, "用户未登录");
         }
         long likeCount = likeService.disLike(user.getId(), EntityType.ENTITY_MICRO_BLOG, microBlogId);
         //更新点赞数
         microBlogService.updateLikeCount(microBlogId, (int) likeCount);
-        return ToutiaoUtil.getJSONString(0, String.valueOf(likeCount));
+        return MicroBlogUtils.getJSONString(0, String.valueOf(likeCount));
     }
 }

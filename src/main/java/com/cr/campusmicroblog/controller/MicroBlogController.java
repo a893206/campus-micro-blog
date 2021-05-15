@@ -2,7 +2,7 @@ package com.cr.campusmicroblog.controller;
 
 import com.cr.campusmicroblog.entity.*;
 import com.cr.campusmicroblog.service.*;
-import com.cr.campusmicroblog.util.ToutiaoUtil;
+import com.cr.campusmicroblog.util.MicroBlogUtils;
 import com.github.pagehelper.PageInfo;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -50,12 +50,12 @@ public class MicroBlogController {
         try {
             String fileUrl = qiniuService.saveImage(file);
             if (fileUrl == null) {
-                return ToutiaoUtil.getJSONString(1, "上传图片失败");
+                return MicroBlogUtils.getJSONString(1, "上传图片失败");
             }
-            return ToutiaoUtil.getJSONString(0, fileUrl);
+            return MicroBlogUtils.getJSONString(0, fileUrl);
         } catch (Exception e) {
             log.error("上传图片失败" + e.getMessage());
-            return ToutiaoUtil.getJSONString(1, "上传失败");
+            return MicroBlogUtils.getJSONString(1, "上传失败");
         }
     }
 
@@ -123,10 +123,10 @@ public class MicroBlogController {
                 microBlog.setUserId(3);
             }
             microBlogService.addMicroBlog(microBlog);
-            return ToutiaoUtil.getJSONString(0);
+            return MicroBlogUtils.getJSONString(0);
         } catch (Exception e) {
             log.error("添加微博失败" + e.getMessage());
-            return ToutiaoUtil.getJSONString(1, "发布失败");
+            return MicroBlogUtils.getJSONString(1, "发布失败");
         }
     }
 

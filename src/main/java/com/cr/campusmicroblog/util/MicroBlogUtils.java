@@ -11,7 +11,7 @@ import java.util.Map;
  * @date 2020-11-17 12:16
  */
 @Slf4j
-public class ToutiaoUtil {
+public class MicroBlogUtils {
     public static String[] IMAGE_FILE_EXT = {"png", "bmp", "jpg", "jpeg"};
 
     public static boolean isFileAllowed(String fileName) {

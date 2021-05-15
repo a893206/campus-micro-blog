@@ -1,5 +1,6 @@
 package com.cr.campusmicroblog.util;
 
+import cn.hutool.core.lang.Validator;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.cr.campusmicroblog.entity.Mail;
 import com.cr.campusmicroblog.mapper.MailMapper;
@@ -35,6 +36,11 @@ public class MailSender implements InitializingBean {
 
     public boolean sendWithHtmlTemplate(String to, String subject, String template, Map<String, Object> model) {
         try {
+            // 邮箱格式校验
+            if (!Validator.isEmail(to)) {
+                return false;
+            }
+
             String nick = MimeUtility.encodeText("校园微博系统");
             InternetAddress from = new InternetAddress(nick + "<931009686@qq.com>");
             MimeMessage mimeMessage = mailSender.createMimeMessage();

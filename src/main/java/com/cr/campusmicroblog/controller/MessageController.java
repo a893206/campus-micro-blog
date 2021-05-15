@@ -6,7 +6,7 @@ import com.cr.campusmicroblog.entity.User;
 import com.cr.campusmicroblog.entity.ViewObject;
 import com.cr.campusmicroblog.service.MessageService;
 import com.cr.campusmicroblog.service.UserService;
-import com.cr.campusmicroblog.util.ToutiaoUtil;
+import com.cr.campusmicroblog.util.MicroBlogUtils;
 import com.github.pagehelper.PageInfo;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -106,6 +106,6 @@ public class MessageController {
         msg.setConversationId(fromId < toId ? String.format("%d_%d", fromId, toId) :
                 String.format("%d_%d", toId, fromId));
         messageService.addMessage(msg);
-        return ToutiaoUtil.getJSONString(msg.getId());
+        return MicroBlogUtils.getJSONString(msg.getId());
     }
 }

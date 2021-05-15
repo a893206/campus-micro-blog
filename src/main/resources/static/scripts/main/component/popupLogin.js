@@ -158,7 +158,7 @@
         var that = this;
         var oData = that.val();
         var bRight = true;
-        if (!Util.isEmail(oData.email)) {
+        if (!Util.isEmail(oData.email) && oData.email !== '系统管理员') {
             that.iptError(that.emailIpt, '请填写正确的邮箱');
             bRight = false;
         }

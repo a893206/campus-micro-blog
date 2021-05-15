@@ -2,7 +2,7 @@ package com.cr.campusmicroblog.service.impl;
 
 import com.alibaba.fastjson.JSONObject;
 import com.cr.campusmicroblog.service.QiniuService;
-import com.cr.campusmicroblog.util.ToutiaoUtil;
+import com.cr.campusmicroblog.util.MicroBlogUtils;
 import com.qiniu.common.QiniuException;
 import com.qiniu.http.Response;
 import com.qiniu.storage.Configuration;
@@ -60,7 +60,7 @@ public class QiniuServiceImpl implements QiniuService {
                 return null;
             }
             String fileExt = file.getOriginalFilename().substring(dotPos + 1).toLowerCase();
-            if (!ToutiaoUtil.isFileAllowed(fileExt)) {
+            if (!MicroBlogUtils.isFileAllowed(fileExt)) {
                 return null;
             }
 
