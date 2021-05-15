@@ -23,7 +23,7 @@ SpringBoot、Spring、SpringMVC、MyBatis-Plus、七牛云、Redis、MySQL 8、T
 ## 细节改进
 
 1. 微博、评论、站内信分页使用PageHelper分页插件实现（设置页码数量navigatePages）、前端搭配Bootstrap调用PageInfo类的导航页数组navigatepageNums（默认为8，修改为5）使页码最多显示当前页码附近的5页。
-2. 使用Bootstrap navbar-static-top样式使导航条静止在顶部，导航条添加站内信未读消息图标、当前用户头像、注销按钮。
+2. 使用Bootstrap navbar-fixed-top样式使导航条静止在顶部，导航条添加站内信未读消息图标、当前用户头像、注销按钮。
 3. 阅读站内信后清除未读数字。
 4. 赞踩功能逻辑修改（likeCount = 点赞数 - 点踩数），编写前后端对应的代码，首先需要登录，未登录会弹出登录窗提示登录，点击后在添加或删除pressed样式的同时，修改Redis数据并使用Redis实现异步架构操作数据库。
 
